@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/home/widgets/news_details_view.dart';
 
 class HomeView extends StatefulWidget {
   static const String routeName = "home";
@@ -71,7 +72,7 @@ class _HomeViewState extends State<HomeView> {
             style: theme.textTheme.titleLarge,
           ),
         ),
-        drawer: CustomDrawer(
+        drawer: const CustomDrawer(
           onItemClicked: onCategoryDrawerClicked,
         ),
         body: selectedCategory == null
@@ -107,7 +108,9 @@ class _HomeViewState extends State<HomeView> {
                   ],
                 ),
               )
-            : NewsView(categoryData: selectedCategory!),
+            : NewsDetailsView(
+                categoryData: selectedCategory!,
+              ),
       ),
     );
   }
@@ -119,6 +122,12 @@ class _HomeViewState extends State<HomeView> {
   }
 
   onCategoryDrawerClicked() {
+    selectedCategory = null;
+    Navigator.pop(context);
+    setState(() {});
+  }
+
+  onDrawerCategoryClicked() {
     selectedCategory = null;
     Navigator.pop(context);
     setState(() {});

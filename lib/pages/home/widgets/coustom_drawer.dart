@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/settings/settings_view.dart';
 
 class CoustomDrawer extends StatelessWidget {
-  const CoustomDrawer({super.key});
+  final Function onCategoryClicked;
+
+  const CoustomDrawer({super.key, required this.onCategoryClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +30,36 @@ class CoustomDrawer extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Row(
-              children: [
-                Icon(Icons.settings, size: 38),
-                SizedBox(width: 10),
-                Text(
-                  "settings",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+          GestureDetector(
+            onTap: () {
+              onCategoryClicked();
+            },
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, SettingsView.routeName);
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Navigator(
+                  child: Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.settings, size: 38),
+                        SizedBox(width: 10),
+                        Text(
+                          "settings",
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ],
+              ),
             ),
           )
         ],
