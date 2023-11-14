@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/home/widgets/coustom_drawer.dart';
 import 'package:news_app/pages/home/widgets/news_details_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -72,8 +73,8 @@ class _HomeViewState extends State<HomeView> {
             style: theme.textTheme.titleLarge,
           ),
         ),
-        drawer: const CustomDrawer(
-          onItemClicked: onCategoryDrawerClicked,
+        drawer: CoustomDrawer(
+          onCategoryClicked: onCategoryDrawerClicked,
         ),
         body: selectedCategory == null
             ? Padding(

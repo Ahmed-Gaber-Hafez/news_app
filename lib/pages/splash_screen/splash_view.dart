@@ -29,7 +29,7 @@ class _SplashViewState extends State<SplashView> {
       decoration: const BoxDecoration(
         color: Colors.white,
         image: DecorationImage(
-          image: AssetImage("assets/images/splash.png"),
+          image: AssetImage("assets/images/splash.png "),
           fit: BoxFit.cover,
         ),
       ),
